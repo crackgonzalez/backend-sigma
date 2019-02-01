@@ -9,7 +9,7 @@ let urlDB;
 if (ENTORNO === 'dev') {
     urlDB = 'mongodb://localhost:27017/sigma-mean';
 } else {
-    urlDB = 'mongodb://crackgonzalez:cra180719@ds113495.mlab.com:13495/sigma-mean';
+    urlDB = process.env.MONGO_URI;
 }
 
 RUTA = urlDB;
