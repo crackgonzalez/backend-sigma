@@ -2,6 +2,7 @@
 require('./config/config');
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // configuracion express
 const app = express();
@@ -11,24 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // rutas
-app.get('/conductor', (req, res) => {
-    res.json('Get Conductor');
-});
+app.use(require('./routes/conductor'));
 
-app.post('/conductor', (req, res) => {
-    let body = req.body;
-    res.json({ body });
-});
-
-app.put('/conductor/:id', (req, res) => {
-
-    let id = req.params.id;
-
-    res.json({ id });
-});
-
-app.delete('/conductor/:id', (req, res) => {
-    res.json('Delete Conductor')
+mongoose.connect(RUTA, { useNewUrlParser: true, useCreateIndex: true }, (err, res) => {
+    if (err) throw err;
+    console.log('Base de datos online');
 });
 
 // iniciar el servidor
