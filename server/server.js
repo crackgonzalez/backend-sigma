@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // rutas
-app.use(require('./routes/conductor'));
+app.use(require('./routes/index'));
 
 mongoose.connect(RUTA, { useNewUrlParser: true, useCreateIndex: true }, (err, res) => {
     if (err) throw err;

@@ -13,3 +13,9 @@ if (ENTORNO === 'dev') {
 }
 
 RUTA = urlDB;
+
+// vencimiento del token
+CADUCIDAD_TOKEN = process.env.CADUCIDAD_TOKEN || 60 * 60 * 24 * 30;
+
+// seed del token
+SEED = process.env.SEED || 'seed'
